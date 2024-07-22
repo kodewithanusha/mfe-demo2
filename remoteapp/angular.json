@@ -1,0 +1,209 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"admin-view": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/admin-view",
+			"sourceRoot": "projects/admin-view/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/admin-view",
+						"index": "projects/admin-view/src/index.html",
+						"main": "projects/admin-view/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/admin-view/tsconfig.app.json",
+						"assets": [
+							"projects/admin-view/src/favicon.ico",
+							"projects/admin-view/src/assets"
+						],
+						"styles": [
+							"projects/admin-view/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/admin-view/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/admin-view/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "admin-view:build:production",
+							"extraWebpackConfig": "projects/admin-view/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "admin-view:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/admin-view/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "admin-view:build",
+						"extraWebpackConfig": "projects/admin-view/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/admin-view/tsconfig.spec.json",
+						"assets": [
+							"projects/admin-view/src/favicon.ico",
+							"projects/admin-view/src/assets"
+						],
+						"styles": [
+							"projects/admin-view/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"recon": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/recon",
+			"sourceRoot": "projects/recon/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/recon",
+						"index": "projects/recon/src/index.html",
+						"main": "projects/recon/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/recon/tsconfig.app.json",
+						"assets": [
+							"projects/recon/src/favicon.ico",
+							"projects/recon/src/assets"
+						],
+						"styles": [
+							"projects/recon/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/recon/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/recon/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "recon:build:production",
+							"extraWebpackConfig": "projects/recon/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "recon:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/recon/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "recon:build",
+						"extraWebpackConfig": "projects/recon/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/recon/tsconfig.spec.json",
+						"assets": [
+							"projects/recon/src/favicon.ico",
+							"projects/recon/src/assets"
+						],
+						"styles": [
+							"projects/recon/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	}
+}
